@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link, usePage } from '@inertiajs/react';
+// 1. Import icon minimalis dari react-icons/hi
+import { HiOutlineMenuAlt3, HiX } from 'react-icons/hi';
 
 export default function AppLayout({ children }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -49,19 +51,27 @@ export default function AppLayout({ children }) {
                             })}
                         </div>
 
-                        {/* Mobile Menu Button */}
+                        {/* Mobile Menu Button - REFACTOR DENGAN REACT-ICONS */}
                         <div className="flex md:hidden">
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="text-slate-600 hover:text-slate-950 focus:outline-none p-2 rounded-xl hover:bg-slate-100 transition-colors"
+                                className="text-slate-600 hover:text-slate-950 focus:outline-none p-2 rounded-xl hover:bg-slate-100 transition-all duration-300 size-10 flex items-center justify-center relative"
+                                aria-label="Toggle navigation"
                             >
-                                <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    {isOpen ? (
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                    ) : (
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                                    )}
-                                </svg>
+                                <div className="relative size-6 flex items-center justify-center">
+                                    {/* Icon Close / HiX */}
+                                    <HiX 
+                                        className={`size-6 absolute transition-all duration-300 transform ${
+                                            isOpen ? 'rotate-0 opacity-100 scale-100' : 'rotate-90 opacity-0 scale-50'
+                                        } text-teal-600`} 
+                                    />
+                                    {/* Icon Hamburger / HiOutlineMenuAlt3 */}
+                                    <HiOutlineMenuAlt3 
+                                        className={`size-6 absolute transition-all duration-300 transform ${
+                                            isOpen ? '-rotate-90 opacity-0 scale-50' : 'rotate-0 opacity-100 scale-100'
+                                        }`} 
+                                    />
+                                </div>
                             </button>
                         </div>
                     </div>
