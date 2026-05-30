@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+@theme {
+  /* Mengatur Font Family Bawaan & Custom */
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-display: "Sora", sans-serif;
+
+  /* Menambahkan Warna Custom Bertema Teal/Emerald Gradient */
+  --color-brand-teal: var(--color-teal-600);
+  --color-brand-emerald: var(--color-emerald-500);
+  
+  /* Gradasi Khas */
+  --background-image-brand-gradient: linear-gradient(to right, var(--color-teal-600), var(--color-emerald-500));
+  --background-image-brand-gradient-hover: linear-gradient(to right, var(--color-teal-700), var(--color-emerald-600));
+}
+
+/* --- TAILWIND v4 UTILITY HELPER --- */
+@utility size-3 { width: var(--spacing-3); height: var(--spacing-3); }
+@utility size-4 { width: var(--spacing-4); height: var(--spacing-4); }
+@utility size-5 { width: var(--spacing-5); height: var(--spacing-5); }
+@utility size-6 { width: var(--spacing-6); height: var(--spacing-6); }
+@utility size-8 { width: var(--spacing-8); height: var(--spacing-8); }
+@utility size-10 { width: var(--spacing-10); height: var(--spacing-10); }
+@utility size-20 { width: var(--spacing-20); height: var(--spacing-20); }
