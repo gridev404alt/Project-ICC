@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <AppLayout>
             <Head>
-                <title>Indonesia Coffee Center</title>
+                <title>Beranda - Indonesia Coffee Center</title>
                 <meta name="description" content="Platform resmi profil industri, e-catalog biji kopi premium, dan jaringan mitra Indonesia Coffee Center." />
             </Head>
 

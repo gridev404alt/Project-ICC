@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link, usePage } from '@inertiajs/react';
-// 1. Import icon minimalis dari react-icons/hi
 import { HiOutlineMenuAlt3, HiX } from 'react-icons/hi';
 
 export default function AppLayout({ children }) {
@@ -12,8 +11,8 @@ export default function AppLayout({ children }) {
         { name: 'About', href: '/about' },
         { name: 'Service', href: '/service' },
         { name: 'Catalog', href: '/catalog' },
-        { name: 'Outlet', href: '/outlet' },
         { name: 'Blog', href: '/blog' },
+        { name: 'Outlet', href: '/outlet' },
         { name: 'Contact', href: '/contact' },
     ];
 
@@ -106,7 +105,7 @@ export default function AppLayout({ children }) {
                 {children}
             </main>
 
-            {/* FOOTER PREMIUM */}
+            {/* FOOTER */}
             <footer className="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-slate-900">
