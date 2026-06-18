@@ -26,7 +26,7 @@ export default function Home() {
             title="Indonesia Coffee Center - Menghubungkan Rasa Kopi Nusantara"
             description="Ekosistem digital untuk eksplorasi katalog kopi, layanan agronomi, outlet mitra, dan riset industri kopi Indonesia."
         >
-            <section className="mx-auto max-w-7xl px-6">
+            <section className="mx-auto max-w-7xl px-6 pt-4">
                 <div className="relative overflow-hidden rounded-3xl">
                     <img src={heroCoffee} alt="Indonesia Coffee Center" className="h-[460px] w-full object-cover md:h-[560px]" width={1920} height={1080} />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
