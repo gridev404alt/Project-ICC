@@ -1,163 +1,136 @@
+import { Link } from '@inertiajs/react';
+import { 
+    ArrowRight, BadgeCheck, ChevronLeft, ChevronRight 
+} from 'lucide-react';
 import AppLayout from '../../Layouts/AppLayout';
-import { Head, Link } from '@inertiajs/react';
+import coffeeBeans from '../../Components/Assets/coffee-beans.jpg';
+import coffeeShop from '../../Components/Assets/coffee-shop.jpg';
+import heroCoffee from '../../Components/Assets/hero-coffee.jpg';
+
+const partners = [
+    'PERTAMINA',
+    'MIND ID',
+    'Telkom Indonesia',
+    'Garuda Indonesia',
+    'BTN',
+    'DJARUM',
+    'gojek',
+    'BNI',
+    'bulog',
+    'ID FOOD',
+];
 
 export default function Home() {
     return (
-        <AppLayout>
-            <Head>
-                <title>Beranda - Indonesia Coffee Center</title>
-                <meta name="description" content="Platform resmi profil industri, e-catalog biji kopi premium, dan jaringan mitra Indonesia Coffee Center." />
-            </Head>
+        <AppLayout
+            title="Indonesia Coffee Center - Menghubungkan Rasa Kopi Nusantara"
+            description="Ekosistem digital untuk eksplorasi katalog kopi, layanan agronomi, outlet mitra, dan riset industri kopi Indonesia."
+        >
+            <section className="mx-auto max-w-7xl px-6">
+                <div className="relative overflow-hidden rounded-3xl">
+                    <img src={heroCoffee} alt="Indonesia Coffee Center" className="h-[460px] w-full object-cover md:h-[560px]" width={1920} height={1080} />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
 
-            {/* HERO SECTION */}
-            <section className="relative overflow-hidden bg-white pt-12 pb-20 lg:pt-20 lg:pb-28">
-                {/* Background Glows */}
-                <div className="absolute top-0 right-0 -z-10 h-full w-full opacity-30">
-                    <div className="absolute -top-40 -right-40 size-20 rounded-full bg-teal-300 blur-[150px]"></div>
-                    <div className="absolute top-60 right-60 size-96 rounded-full bg-emerald-200 blur-[130px]"></div>
-                </div>
+                    <button type="button" aria-label="Previous" className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/30 p-2 backdrop-blur hover:bg-white/50">
+                        <ChevronLeft className="h-5 w-5 text-white" />
+                    </button>
+                    <button type="button" aria-label="Next" className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/30 p-2 backdrop-blur hover:bg-white/50">
+                        <ChevronRight className="h-5 w-5 text-white" />
+                    </button>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                        
-                        {/* Kiri: Teks CTA */}
-                        <div className="lg:col-span-7 space-y-6 text-left">
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 ring-1 ring-inset ring-teal-600/10">
-                                <span className="flex size-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                                Hub Kopi Digital Global Terintegrasi
-                            </div>
-                            
-                            <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight text-slate-950 lg:leading-[1.15]">
-                                Menghubungkan Rasa <br />
-                                <span className="text-transparent bg-clip-text bg-brand-gradient">
-                                    Kopi Nusantara
-                                </span>
-                            </h1>
-                            
-                            <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
-                                Selamat datang di Indonesia Coffee Center (ICC). Ekosistem digital untuk mengeksplorasi katalog kopi pilihan, info layanan agronomi, sebaran outlet mitra, serta riset industri kopi terbaik dari hulu ke hilir.
-                            </p>
-                            
-                            <div className="flex flex-wrap gap-4 pt-2">
-                                <Link
-                                    href="/catalog"
-                                    className="px-8 py-4 bg-brand-gradient hover:bg-brand-gradient-hover text-white font-bold tracking-wide rounded-2xl shadow-xl shadow-teal-600/20 hover:shadow-teal-600/30 transition-all duration-300 transform hover:-translate-y-0.5"
-                                >
-                                    Jelajahi Katalog Kopi
-                                </Link>
-                                <Link
-                                    href="/contact"
-                                    className="px-8 py-4 bg-white hover:bg-slate-50 text-slate-800 font-bold tracking-wide rounded-2xl ring-1 ring-slate-200/80 shadow-sm transition-all duration-300"
-                                >
-                                    Kemitraan & Hubungi Kami
-                                </Link>
-                            </div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+                        <h1 className="max-w-2xl text-3xl font-semibold leading-tight text-white md:text-4xl lg:text-5xl">
+                            Menghubungkan Rasa Kopi Nusantara
+                            <br />
+                            Dengan Satu Genggaman
+                        </h1>
+                        <p className="mt-5 max-w-xl text-sm text-white/85 md:text-base">
+                            Selamat datang di Indonesia Coffee Center (ICC). Ekosistem digital untuk mengeksplorasi katalog kopi pilihan, layanan agronomi, sebaran outlet mitra, serta riset industri kopi terbaik dari hulu ke hilir.
+                        </p>
+                        <Link href="/catalog" className="mt-6 rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90">
+                            Jelajahi Katalog Kopi
+                        </Link>
+                    </div>
+
+                    <div className="absolute bottom-5 left-6 flex items-center gap-3">
+                        <div className="flex -space-x-2">
+                            {[1, 2, 3].map((item) => (
+                                <div key={item} className="h-7 w-7 rounded-full border-2 border-white bg-gradient-to-br from-amber-200 to-amber-600" />
+                            ))}
                         </div>
-
-                        {/* Kanan: Mockup Sistem ICC Market Data */}
-                        <div className="lg:col-span-5 relative">
-                            <div className="relative mx-auto w-full max-w-[450px] lg:max-w-none bg-gradient-to-tr from-slate-900 to-slate-800 p-6 rounded-3xl shadow-2xl shadow-slate-950/20 border border-slate-700/50">
-                                {/* Header Mockup Windows */}
-                                <div className="flex items-center space-x-2 pb-4 border-b border-slate-700/40 mb-4">
-                                    <div className="size-3 rounded-full bg-red-500"></div>
-                                    <div className="size-3 rounded-full bg-yellow-500"></div>
-                                    <div className="size-3 rounded-full bg-emerald-500"></div>
-                                    <span className="text-xs text-slate-500 pl-2 font-mono">icc-market-tracker.sys</span>
-                                </div>
-
-                                {/* Content Mini Stats */}
-                                <div className="space-y-4">
-                                    <div className="bg-slate-800/60 p-4 rounded-xl border border-slate-700/30">
-                                        <span className="text-xs text-slate-400 block mb-1">Volume Katalog Green Beans Terdata</span>
-                                        <div className="flex justify-between items-end">
-                                            <span className="text-2xl font-bold font-display text-white tracking-tight">824 Ton / Thn</span>
-                                            <span className="text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-md">Grade A Premium</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div className="bg-slate-800/60 p-4 rounded-xl border border-slate-700/30">
-                                            <span className="text-xs text-slate-400 block mb-1">Outlet & Roastery Mitra</span>
-                                            <span className="text-xl font-bold font-display text-white">42 Titik</span>
-                                        </div>
-                                        <div className="bg-slate-800/60 p-4 rounded-xl border border-slate-700/30">
-                                            <span className="text-xs text-slate-400 block mb-1">Arsitektur Core</span>
-                                            <span className="text-xs font-mono font-bold bg-teal-500/10 text-teal-400 px-2 py-1 rounded inline-block mt-1 border border-teal-500/20">Laravel 11 + React</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Indikator Trend Ekspor */}
-                                    <div className="bg-slate-800/30 p-4 rounded-xl border border-slate-700/20 space-y-2">
-                                        <span className="text-xs text-slate-400 block">Indeks Permintaan Kopi Nusantara (Global)</span>
-                                        <div className="flex items-end gap-2 pt-2 h-16">
-                                            <div className="w-full bg-slate-700 h-[25%] rounded-sm"></div>
-                                            <div className="w-full bg-slate-700 h-[40%] rounded-sm"></div>
-                                            <div className="w-full bg-slate-700 h-[60%] rounded-sm"></div>
-                                            <div className="w-full bg-brand-gradient h-[80%] rounded-sm shadow-lg shadow-teal-500/20"></div>
-                                            <div className="w-full bg-brand-gradient h-[95%] rounded-sm shadow-lg shadow-teal-500/20"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="text-[10px] leading-tight text-white/90">
+                            <div>Hub Kopi Digital Global</div>
+                            <div>Yang Terintegrasi</div>
                         </div>
+                    </div>
 
+                    <div className="absolute bottom-5 right-6 hidden items-center gap-6 text-sm text-white md:flex">
+                        <Link href="/service" className="flex items-center gap-1 hover:text-primary">Service <ArrowRight className="h-3.5 w-3.5" /></Link>
+                        <Link href="/outlet" className="flex items-center gap-1 hover:text-primary">Outlet Kami <ArrowRight className="h-3.5 w-3.5" /></Link>
+                        <Link href="/contact" className="flex items-center gap-1 hover:text-primary">Hubungi Kami <ArrowRight className="h-3.5 w-3.5" /></Link>
                     </div>
                 </div>
             </section>
 
-            {/* SECTIONS FEATURE LAYANAN */}
-            <section className="bg-slate-100 py-20 lg:py-28 border-t border-slate-200/60">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center max-w-3xl mx-auto space-y-4">
-                        <h2 className="text-3xl sm:text-4xl font-black font-display tracking-tight text-slate-950">
-                            Pilar Layanan Utama ICC
-                        </h2>
-                        <p className="text-slate-600 max-w-2xl mx-auto text-base">
-                            Sistem informasi satu pintu untuk mengelola komoditas unggulan nasional demi mendukung ekosistem sirkular industri kopi Indonesia.
-                        </p>
+            <section className="mx-auto max-w-7xl px-6 py-12">
+                <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-3">
+                    <p className="text-sm text-foreground">ICC @2026</p>
+                    <div className="h-px w-full bg-foreground/40" />
+                    <p className="text-sm leading-relaxed text-foreground/80">
+                        Perjalanan panjang kami untuk senantiasa berbakti bagi negeri, memberikan kontribusi terbaik di setiap kepingan kopi yang Anda terima hari ini.
+                    </p>
+                </div>
+            </section>
+
+            <section className="mx-auto max-w-7xl px-6">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+                    <div className="flex flex-col gap-5">
+                        <div className="rounded-3xl bg-primary p-6 text-primary-foreground">
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <p className="text-[10px] uppercase opacity-80">Volume Katalog<br />Green Beans Terdata</p>
+                                    <p className="mt-3 text-4xl font-bold">824<span className="ml-1 text-xs font-normal opacity-80">Ton/Tahun</span></p>
+                                </div>
+                                <div>
+                                    <p className="text-[10px] uppercase opacity-80">Outlet dan Roastery<br />Semua Mitra</p>
+                                    <p className="mt-3 text-4xl font-bold">42<span className="ml-1 text-xs font-normal opacity-80">Titik</span></p>
+                                </div>
+                            </div>
+                            <p className="mt-6 text-[10px] opacity-70">ICC @2026</p>
+                        </div>
+                        <Link href="/service" className="flex items-center justify-between rounded-3xl bg-secondary p-6 text-secondary-foreground transition hover:opacity-95">
+                            <h3 className="text-2xl font-semibold leading-tight">Service<br />Pelayanan Kami</h3>
+                            <div className="rounded-full bg-primary p-3"><BadgeCheck className="h-7 w-7 text-secondary" strokeWidth={2.5} /></div>
+                        </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-                        {/* Card 1: Catalog */}
-                        <div className="bg-white p-8 rounded-2xl border border-slate-200/50 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group">
-                            <div className="size-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-gradient group-hover:text-white transition-all duration-300">
-                                <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v6a2 2 0 012-2m14-0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                                </svg>
-                            </div>
-                            <h3 className="text-xl font-bold font-display text-slate-950 mb-3">E-Catalog Komoditas</h3>
-                            <p className="text-slate-600 text-sm leading-relaxed">
-                                Eksplorasi beragam jenis kopi Indonesia (Gayo, Mandheling, Kintamani, Toraja) lengkap dengan skor cupping, profil proses (Full Wash, Natural, Honey), dan elevasi lahan.
-                            </p>
+                    <Link href="/catalog" className="relative block overflow-hidden rounded-3xl">
+                        <img src={coffeeBeans} alt="Katalog Kopi" className="h-full min-h-[380px] w-full object-cover" loading="lazy" width={800} height={800} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
+                        <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                            <h3 className="text-2xl font-semibold leading-tight">Semua<br />Katalog Kami</h3>
+                            <p className="mt-3 text-sm leading-relaxed text-white/85">Eksplorasi beragam jenis kopi Indonesia lengkap dengan skor cupping, profil proses, dan elevasi lahan.</p>
                         </div>
+                    </Link>
 
-                        {/* Card 2: Outlet */}
-                        <div className="bg-white p-8 rounded-2xl border border-slate-200/50 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group">
-                            <div className="size-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-gradient group-hover:text-white transition-all duration-300">
-                                <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-xl font-bold font-display text-slate-950 mb-3">Jaringan Outlet & Hub</h3>
-                            <p className="text-slate-600 text-sm leading-relaxed">
-                                Integrasi data sebaran outlet fisik pusat edukasi, laboratorium cupping, gudang distribusi utama, dan *roastery* resmi yang berafiliasi di bawah payung ICC.
-                            </p>
+                    <Link href="/blog" className="relative block overflow-hidden rounded-3xl">
+                        <img src={coffeeShop} alt="Artikel dan Jurnal" className="h-full min-h-[380px] w-full object-cover" loading="lazy" width={800} height={800} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
+                        <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                            <h3 className="text-2xl font-semibold leading-tight">Artikel dan<br />Jurnal Hari Ini</h3>
+                            <p className="mt-3 text-sm leading-relaxed text-white/85">Publikasi artikel edukatif reguler seputar tren pasar kopi dunia, riset fermentasi terbaru, hingga tips produktivitas petani lokal.</p>
                         </div>
+                    </Link>
+                </div>
+            </section>
 
-                        {/* Card 3: Blog */}
-                        <div className="bg-white p-8 rounded-2xl border border-slate-200/50 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300 group">
-                            <div className="size-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-gradient group-hover:text-white transition-all duration-300">
-                                <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v12a2 2 0 01-2 2z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11l2 2m0 0l2-2m-2 2v-6" />
-                                </svg>
-                            </div>
-                            <h3 className="text-xl font-bold font-display text-slate-950 mb-3">Wawasan & Jurnal Kopi</h3>
-                            <p className="text-slate-600 text-sm leading-relaxed">
-                                Publikasi artikel edukatif reguler seputar tren pasar kopi dunia, riset metode fermentasi terbaru, hingga tips mengoptimalkan produktivitas bagi petani lokal.
-                            </p>
-                        </div>
+            <section className="mx-auto max-w-7xl px-6 py-14">
+                <p className="mb-6 text-center text-sm text-foreground/80">Semua mitra dalam pelayanan kami</p>
+                <div className="rounded-3xl bg-primary px-8 py-10">
+                    <div className="grid grid-cols-2 items-center gap-x-6 gap-y-8 sm:grid-cols-3 md:grid-cols-5">
+                        {partners.map((partner) => (
+                            <div key={partner} className="text-center text-base font-semibold tracking-wide text-primary-foreground/95">{partner}</div>
+                        ))}
                     </div>
                 </div>
             </section>
